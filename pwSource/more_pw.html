@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<style>body { background-color: #000000; font-family: Arial; Color: white;}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8">
+<meta name="theme-color" content="#042B3C" />
+<link rel="shortcut icon" type="image/png" href='favicon.ico' />
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+
+  .headerContr{
+    text-align: center;
+    background-color: #610418;
+    font-size: 180%;
+  }
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 900px;
+}
+
+th {
+	  background-color: #004722;
+    border: 1px solid #6e8e94;
+		
+    text-align: left;
+    padding: 8px;
+}
+td {
+    border: 1px solid #004763;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    
+    background-color: #003e57;
+}
+tr:nth-child(odd) {
+  background-color: #0a0307;
+	 
+}
+
+a, a:active, a:visited { color: white; text-decoration: none; }
+a:hover { color: rgb(238, 255, 0); text-decoration: none; }
+
+</style>
+
+
+</head>
+
+<table>
+    <th class="headerContr" colspan="5" >Live Charts</th>
+  <tr>
+    <th>Adress</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td><a href="FreeHeap_Live.html">/FreeHeap_Live.html</a></td>
+    <td>Free heap live chart</td>
+  </tr>
+  <tr>
+    <td><a href="Volt_Live.html">/Volt_Live.html</a></td>
+    <td>AC Voltage live chart</td>
+  </tr>
+  <tr>
+    <td><a href="Power_Live.html">/Power_Live.html</a></td>
+    <td>Power live chart</td>
+  </tr>
+  <tr>
+    <td><a href="Current_Live.html">Current_Live.html</a></td>
+    <td>AC Current live chart</td>
+  </tr>
+  <tr>
+    <td><a href="Frequency_Live.html">Frequency_Live.html</a></td>
+    <td>Frequency live chart</td>
+  </tr>
+  <tr>
+    <td><a href="PF_Live.html">PF_Live.html</a></td>
+    <td>Power Factor live chart</td>
+  </tr>
+  <tr>
+    <td><a href="Temp_Live.html">/Temp_Live.html</a></td>
+    <td>Temperature live chart</td>
+  </tr>
+    <tr>
+        <td><a href="Errors_Live.html">/Errors_Live.html</a></td>
+        <td>DS18B20 Errors live chart</td>
+  </tr>
+</table>
+
+<br>
+<br>
+
+<table>
+  <th class="headerContr" colspan="5" >Data</th>
+<tr>
+  <th>Adress</th>
+  <th>Action</th>
+</tr>
+<tr>
+  <td><a href="Power_Ref.html">Power_Ref.html</a></td>
+  <td>Measure change in power consumption</td>
+</tr>
+<tr>
+  <td><a href="smartData">/smartData</a></td>
+  <td>Get static HTML page with SmartData from ESP</td>
+</tr>
+<tr>
+  <td><a href="info">/info</a></td>
+  <td>Information about ESP</td>
+</tr>
+<tr>
+  <td><a href="IP_History">/IP_History</a></td>
+  <td>List IP addresses of devices conected to ESP</td>
+</tr>
+<tr>
+  <td><a href="listAP">/listAP</a></td>
+  <td>Scan AP nearby and show list</td>
+</tr>
+<tr>
+  <td><a href="ErrorsDS">/ErrorsDS</a></td>
+  <td>DS18B20 Sensors errors</td>
+</tr>
+<tr>
+  <td><a href="OneWireServer?setUpdt=600">/OneWireServer?setUpdt=600</a></td>
+  <td>OneWire address server</td>
+</tr>
+<tr>
+  <td><a href="I2C_Server?setUpdt=600">/I2C_Server?setUpdt=600</a></td>
+  <td>I2C address server</td>
+</tr>
+</table>
+
+<br>
+<br>
+
+<body>
+<table>
+    <th class="headerContr" colspan="5" >Restful API</th>
+  <tr>
+    <th>Adress</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td><a href="/">/</a></td>
+    <td>The main page</td>
+  </tr>
+  <tr>
+    <td><a href="restart">/restart</a></td>
+    <td>Restart ESP</td>
+  </tr>
+  <tr>
+    <td><a href="Feed_JSON">/Feed_JSON</a></td>
+    <td>For live updates: JSON feed</td>
+  </tr>
+  <tr>
+    <td><a href="Feed_JSON?powerOff_PIN=1234">/Feed_JSON?powerOff_PIN=1234</a></td>
+    <td>Light off and get JSON feed</td>
+  </tr>
+  <tr>
+    <td><a href="PublicAccessTrue">/PublicAccessTrue</a></td>
+    <td>Enable public access</td>
+  </tr>
+  <tr>
+    <td><a href="PublicAccessFalse">/PublicAccessFalse</a></td>
+    <td>Disable public access</td>
+  </tr>
+  <tr>
+    <td><a href="SendDataToServerTrue">/SendDataToServerTrue</a></td>
+    <td>Allow send data to servers</td>
+  </tr>
+  <tr>
+    <td><a href="SendDataToServerFalse">/SendDataToServerFalse</a></td>
+    <td>Disallow send data to servers</td>
+  </tr>
+  <tr>
+    <td><a href="me">/me</td>
+    <td>Get auth token (cookie)</td>
+  </tr>
+</table>
+
+</body>
+</html>

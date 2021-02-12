@@ -1,0 +1,427 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+	<meta name="theme-color" content="#031b26" />
+  <link rel="shortcut icon" href='/favicon.ico'> 
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/modules/exporting.js"></script>
+
+<script>
+    if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='highcharts.js' type='text/javascript'%3E%3C/script%3E"));
+        document.write(unescape("%3Cscript src='exporting.js' type='text/javascript'%3E%3C/script%3E"));
+        document.write(unescape("%3Cscript src='jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+  </script>
+  <style>
+  #container  {
+    height:97%;
+    width:99%;
+    
+  }    
+  </style>
+
+</head>
+<body style=" background-color: #000000; color: white;">
+
+
+
+
+<script>  /////////////////====================EverythingGoingHERE========================//////////////////////////
+
+var setChartHeight = 97;
+
+
+$(document).ready(function () {
+
+  var hostAdr =  location.host;
+ // var hostAdr =  "192.168.4.213:8089";
+
+
+Highcharts.setOptions({
+
+global: {
+        useUTC: false
+    },
+
+    colors: ['#3366ff',  '#ff0000', '#f4740b', '#ff0066', 
+   '#FFFF33', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
+
+  chart: {
+    backgroundColor: {
+       linearGradient: [0, 0, 500, 500],
+       stops: [
+         [0, 'rgb(000, 000, 000)'],
+         [1, 'rgb(000, 000, 000)']
+       ]
+
+     },
+     polar: true,
+     type: 'area',
+	 //height: '45%',
+
+	 
+  },
+  yAxis: {
+  title: {
+            style: {
+                color: '#bfbfbf',
+				//fontWeight: 'bold'
+            }
+        },
+  
+        gridLineColor: '#333333', // chart line color
+		
+		labels: {
+            style: {
+                color: '#bfbfbf'
+            }
+    },
+
+        
+    },
+	
+	
+	
+	legend: {
+        itemStyle: {
+            color: '#bfbfbf',
+            fontWeight: 'bold'
+        },
+		itemHoverStyle: {
+            color: '#33cccc'
+        },
+		itemHiddenStyle: {
+		color: 'gray'}
+		},
+	
+	xAxis: {
+	title: {
+            style: {
+                color: '#bfbfbf',
+				//fontWeight: 'bold'
+            }
+        },
+       
+		
+		labels: {
+            style: {
+                color: '#bfbfbf'
+            }
+    }
+	},
+	rangeSelector: {
+	buttonTheme: {
+	            states: {
+                hover: {
+                },
+                select: {
+                    fill: '#33cccc',
+                    style: {
+                        color: 'black'
+                    }
+                }
+                // disabled: { ... }
+               },
+	
+	style: {
+                // color: '#039',
+                fontWeight: 'bold'
+            }
+			},
+	 inputStyle: {
+            color: '#bfbfbf',
+            fontWeight: 'bold'
+        },
+		labelStyle: {
+            color: '#bfbfbf',
+            fontWeight: 'bold'
+        },
+		
+	 }
+
+  
+  
+  
+});
+    
+    
+    
+    var tempOne;
+    var tempTwo;
+    var tempThree;
+    var tempFour;
+    var tempFive;
+    var tempOneMax;
+    var tempOneMin;
+    var tempTwoMax;
+    var tempTwoMin; 
+    var tempThreeMax;
+    var tempThreeMin; 
+    var tempFourMax;
+    var tempFourMin; 
+    var tempFiveMax;
+    var tempFiveMin; 
+    var maxPoints=1700;
+    var disablerStart=false;
+    
+    
+    
+    Highcharts.chart('container', {
+        chart: {
+            type: 'area',
+            animation: Highcharts.svg, // don't animate in old IE
+            marginRight: 10,
+            events: {
+                load: function () {
+                    
+                    // set up the updating of the chart
+                    var series1 = this.series[0];
+                    // var series2 = this.series[1];
+                    // var series3 = this.series[2];
+                    // var series4 = this.series[3];
+                    // var series5 = this.series[4];
+
+                    if(disablerStart==false){
+                        //series1.hide();
+                        // series2.hide();
+                        // series3.hide();
+                        // series4.hide();
+                        // series5.hide();
+            
+                       $('#tempContainerInside').hide();
+                    //    $('#tempContainerOutside').hide();
+                    //    $('#tempContainerAttic').hide();
+                    //    $('#tempContainerBasement').hide();
+                       disablerStart=true;
+                       
+                       }
+                    
+
+  
+                    
+                    setInterval(function () {
+                        var x = (new Date()).getTime(); // current time
+                        $.getJSON('http://'+ hostAdr +'/Feed_JSON',  function( data ){ 
+                            tempOne=data.PWR_Ctrl_tempOne;
+                            // tempTwo=data.tempTwo;
+                            // tempThree=data.tempThree;
+                            // tempFour=data.tempFour;
+                            // tempFive=data.tempFive;
+					   
+                       var shift = series1.data.length > maxPoints ;
+                       //move line up if needed>>> || series2.data.length > maxPoints || series3.data.length > maxPoints || series4.data.length > maxPoints || series5.data.length > maxPoints; // true or false
+                     
+                       series1.addPoint([x, tempOne], true, shift);
+                    //    series2.addPoint([x, tempTwo], true, shift);
+                    //    series3.addPoint([x, tempThree], true, shift);
+                    //    series4.addPoint([x, tempFour], true, shift);
+                    //    series5.addPoint([x, tempFive], true, shift);
+                       //report
+                       //at start if undefiled
+                       if (tempOneMin == null){
+                        tempOneMin=tempOne
+                       }
+                       if (tempOneMax == null){
+                        tempOneMax=tempOne
+                       }
+
+                       if (tempTwoMin == null){
+                        tempTwoMin=tempTwo
+                       }
+                       if (tempTwoMax == null){
+                        tempTwoMax=tempTwo
+                       }
+
+                       if (tempThreeMin == null){
+                        tempThreeMin=tempThree
+                       }
+                       if (tempThreeMax == null){
+                        tempThreeMax=tempThree
+                       }
+
+                       if (tempFourMin == null){
+                        tempFourMin=tempFour
+                       }
+                       if (tempFourMax == null){
+                        tempFourMax=tempFour
+                       }
+
+                       if (tempFiveMin == null){
+                        tempFiveMin=tempFive
+                       }
+                       if (tempFiveMax == null){
+                        tempFiveMax=tempFive
+                       }
+                       //chech new value againist max min
+                       if(tempOne>tempOneMax){tempOneMax=tempOne}
+                       if(tempOne<tempOneMin){tempOneMin=tempOne}
+
+                    //    if(tempTwo>tempTwoMax){tempTwoMax=tempTwo}
+                    //    if(tempTwo<tempTwoMin){tempTwoMin=tempTwo}
+
+                    //    if(tempThree>tempThreeMax){tempThreeMax=tempThree}
+                    //    if(tempThree<tempThreeMin){tempThreeMin=tempThree}
+
+                    //    if(tempFour>tempFourMax){tempFourMax=tempFour}
+                    //    if(tempFour<tempFourMin){tempFourMin=tempFour}
+
+                    //    if(tempFive>tempFiveMax){tempFiveMax=tempFive}
+                    //    if(tempFive<tempFiveMin){tempFiveMin=tempFive}
+                       //update divs
+
+                       $('#nameOne').html("[ Inside ]" + "&nbsp").css('color', '#3366ff');
+                       $('#tempOneMin').html("Min: " + tempOneMin + " &#176;"+ "C" + "&nbsp" + "&nbsp");
+                       $('#tempOneMax').html("Max: " + tempOneMax + " &#176;"+ "C" + "&nbsp");
+                       $('#tempOneLast').html("Last: " + tempOne + " &#176;"+ "C");
+
+                    //    $('#nameTwo').html("[ Outside ]" + "&nbsp").css('color', '#ff0000');
+                    //    $('#tempTwoMin').html("Min: " + tempTwoMin + " &#176;"+ "C" + "&nbsp" + "&nbsp");
+                    //    $('#tempTwoMax').html("Max: " + tempTwoMax + " &#176;"+ "C" + "&nbsp");
+                    //    $('#tempTwoLast').html("Last: " + tempTwo + " &#176;"+ "C");
+
+                    //    $('#nameThree').html("[ Attic ]" + "&nbsp").css('color', '#f4740b');
+                    //    $('#tempThreeMin').html("Min: " + tempThreeMin + " &#176;"+ "C" + "&nbsp" + "&nbsp");
+                    //    $('#tempThreeMax').html("Max: " + tempThreeMax + " &#176;"+ "C" + "&nbsp");
+                    //    $('#tempThreeLast').html("Last: " + tempThree + " &#176;"+ "C");
+
+                    //    $('#nameFour').html("[ Basement ]" + "&nbsp").css('color', '#ff0066');
+                    //    $('#tempFourMin').html("Min: " + tempFourMin + " &#176;"+ "C" + "&nbsp" + "&nbsp");
+                    //    $('#tempFourMax').html("Max: " + tempFourMax + " &#176;"+ "C" + "&nbsp");
+                    //    $('#tempFourLast').html("Last: " + tempFour + " &#176;"+ "C");
+
+                    //    $('#nameFive').html("[ Heating ]" + "&nbsp").css('color', '#FFFF33');
+                    //    $('#tempFiveMin').html("Min: " + tempFiveMin + " &#176;"+ "C" + "&nbsp" + "&nbsp");
+                    //    $('#tempFiveMax').html("Max: " + tempFiveMax + " &#176;"+ "C" + "&nbsp");
+                    //    $('#tempFiveLast').html("Last: " + tempFive + " &#176;"+ "C");
+
+                       // color them
+                       $('.minColor').css('color', '#7abcff');
+                       $('.maxColor').css('color', '#FF0063');
+                       $('.lastColor').css('color', '#E2E2E2');
+                       
+                       });
+                        
+                        
+                    }, 6000);
+                }
+            }
+
+            
+        },
+        title: {
+            text: 'Live Temperature Data',
+			style: {
+            color: '#2B88F5'
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150
+        },
+        yAxis: {
+            title: {
+                text: 'Degree celsius'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+           
+        },
+        legend: {
+            enabled: true
+        },
+        exporting: {
+            enabled: false
+        },
+        series: [{
+            name: 'Power Control Temp'
+        // },{
+        //     name: 'Outside'
+        // }
+        // ,{
+        //     name: 'Attic'
+        // }
+        // ,{
+        //     name: 'Basement'
+        // }
+        // ,{
+        //     name: 'Heating'
+        }],
+		plotOptions: {          ////////////////////////////////////////////////HERE What I DID
+        series: {
+            threshold: null,
+			fillOpacity: 0.1,
+            events: {
+            legendItemClick: function () {
+
+                var visibility = this.visible ? 'visible' : 'hidden';
+                if(visibility=="visible"){
+                    $('#tempContainer'+ this.name).hide();
+                    setChartHeight=setChartHeight+3;
+                }
+                else{
+                    $('#tempContainer'+ this.name).show();
+                    setChartHeight=setChartHeight-3;
+                }
+
+                $('#container').css({ 'height': setChartHeight + "%" });
+                $('#container').highcharts().reflow();
+
+
+                }
+            }
+
+        }
+    }
+    });
+    
+});
+
+</script>
+
+<div id="container"></div>
+<div id="reportDiv" style="text-align:center">
+
+  <div id="tempContainerInside">
+    <span id="nameOne"></span>
+    <span class="minColor" id="tempOneMin"></span>
+    <span class="maxColor" id="tempOneMax"></span>
+    <span class="lastColor" id="tempOneLast"></span>
+  </div>
+  <!-- <div id="tempContainerOutside">
+        <span id="nameTwo"></span>
+        <span class="minColor" id="tempTwoMin"></span>
+        <span class="maxColor" id="tempTwoMax"></span>
+        <span class="lastColor" id="tempTwoLast"></span>
+ </div>
+ <div id="tempContainerAttic">
+        <span id="nameThree"></span>
+        <span class="minColor" id="tempThreeMin"></span>
+        <span class="maxColor" id="tempThreeMax"></span>
+        <span class="lastColor" id="tempThreeLast"></span>
+ </div>
+ <div id="tempContainerBasement">
+        <span id="nameFour"></span>
+        <span class="minColor" id="tempFourMin"></span>
+        <span class="maxColor" id="tempFourMax"></span>
+        <span class="lastColor" id="tempFourLast"></span>
+ </div>
+ <div id="tempContainerHeating">
+        <span id="nameFive"></span>
+        <span class="minColor" id="tempFiveMin"></span>
+        <span class="maxColor" id="tempFiveMax"></span>
+        <span class="lastColor" id="tempFiveLast"></span>
+ </div> -->
+ 
+
+</div>
+
+</html>

@@ -1,0 +1,267 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+	<meta name="theme-color" content="#031b26" />
+<link rel="shortcut icon" href='/favicon.ico'>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/highcharts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.2/modules/exporting.js"></script>
+
+<script>
+    if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='highcharts.js' type='text/javascript'%3E%3C/script%3E"));
+        document.write(unescape("%3Cscript src='exporting.js' type='text/javascript'%3E%3C/script%3E"));
+        document.write(unescape("%3Cscript src='jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+  </script>
+
+<style>
+    #container  {
+      height:97%;
+      width:99%;
+      
+    }    
+ </style>
+
+</head>
+<body style=" background-color: #000000; color: white;">
+
+
+
+
+<script>  /////////////////====================EverythingGoingHERE========================//////////////////////////
+
+
+$(document).ready(function () {
+
+ var hostAdr = location.host;
+
+
+Highcharts.setOptions({
+
+global: {
+        useUTC: false
+    },
+
+colors: ['#2B88F5', '#00695c', '#c62828', '#f7a35c', '#8085e9', 
+   '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
+
+  chart: {
+    backgroundColor: {
+       linearGradient: [0, 0, 500, 500],
+       stops: [
+         [0, 'rgb(000, 004, 000)'],
+         [1, 'rgb(000, 000, 000)']
+       ]
+
+     },
+     polar: true,
+     type: 'area',
+	// height: '47%',
+
+	 
+  },
+  yAxis: {
+  title: {
+            style: {
+                color: '#bfbfbf',
+				//fontWeight: 'bold'
+            }
+        },
+  
+        gridLineColor: '#333333', // chart line color
+		
+		labels: {
+            style: {
+                color: '#bfbfbf'
+            }
+    },
+
+        
+    },
+	
+	
+	
+	legend: {
+        itemStyle: {
+            color: '#bfbfbf',
+            fontWeight: 'bold'
+        },
+		itemHoverStyle: {
+            color: '#33cccc'
+        },
+		itemHiddenStyle: {
+		color: 'gray'}
+		},
+	
+	xAxis: {
+	title: {
+            style: {
+                color: '#bfbfbf',
+				//fontWeight: 'bold'
+            }
+        },
+       
+		
+		labels: {
+            style: {
+                color: '#bfbfbf'
+            }
+    }
+	},
+	rangeSelector: {
+	buttonTheme: {
+	            states: {
+                hover: {
+                },
+                select: {
+                    fill: '#33cccc',
+                    style: {
+                        color: 'black'
+                    }
+                }
+                // disabled: { ... }
+               },
+	
+	style: {
+                // color: '#039',
+                fontWeight: 'bold'
+            }
+			},
+	 inputStyle: {
+            color: '#bfbfbf',
+            fontWeight: 'bold'
+        },
+		labelStyle: {
+            color: '#bfbfbf',
+            fontWeight: 'bold'
+        },
+		
+	 }
+
+  
+  
+  
+});
+    
+    
+    
+    var y;
+    var max;
+    var min; 
+    
+    
+    
+    Highcharts.chart('container', {
+        chart: {
+            type: 'area',
+            animation: Highcharts.svg, // don't animate in old IE
+            marginRight: 10,
+            events: {
+                load: function () {
+				
+
+
+                    // set up the updating of the chart each second
+                    var series = this.series[0];
+                    setInterval(function () {
+                        var x = (new Date()).getTime(); // current time
+                        $.getJSON('http://'+ hostAdr +'/Feed_JSON',  function( data ){ 
+                        y=data.AC_Current; 
+					   
+                       var shift = series.data.length > 1200; 
+                       series.addPoint([x, y], true, shift);
+
+                       //report
+                       //at start if undefiled
+                       if (min == null){
+                        min=y
+                       }
+                       if (max == null){
+                        max=y
+                       }
+                       //chech new value againist max min
+                       if(y>max){max=y}
+                       if(y<min){min=y}
+                       //update divs
+                       $('#reportMin').html("Min: " + min + " A" + "&nbsp" + "&nbsp");
+                       $('#reportMax').html("Max: " + max + " A" + "&nbsp" + "&nbsp");
+                       $('#reportLast').html("Last: " + y + " A");
+                       $('#reportMin').css('color', '#2E88F3');
+                       $('#reportMax').css('color', '#FF0063');
+                       $('#reportLast').css('color', '#E2E2E2');
+                       });
+                        
+                    }, 2000);
+                }
+            }
+        },
+        title: {
+            text: 'Live Current data',
+			style: {
+            color: '#2B88F5'
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150
+        },
+        yAxis: {
+            title: {
+                text: 'Amps'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + '</b><br/>' +
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                    Highcharts.numberFormat(this.y, 2);
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        exporting: {
+            enabled: false
+        },
+        series: [{
+            name: 'Current Live',
+            data: (function () {
+                
+                var data = [],
+                    time = (new Date()).getTime(),
+                    i;
+
+                    data.push({
+                        x: time + i * 1000, 
+                    });
+                
+                return data;
+            }())
+        }],
+		plotOptions: {          ////////////////////////////////////////////////HERE What I DID
+        series: {
+            threshold: null,
+			fillOpacity: 0.1
+        }
+    }
+    });
+});
+
+</script>
+
+<div id="container"></div>
+<div id="reportDiv" style="text-align:center">
+<span id="reportMin"></span>
+<span id="reportMax"></span>
+<span id="reportLast"></span>
+</div>
+
+</html>

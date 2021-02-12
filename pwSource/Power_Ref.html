@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+	<meta name="theme-color" content="#031b26" />
+<link rel="shortcut icon" href='/favicon.ico'>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+    if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='highcharts.js' type='text/javascript'%3E%3C/script%3E"));
+        document.write(unescape("%3Cscript src='exporting.js' type='text/javascript'%3E%3C/script%3E"));
+        document.write(unescape("%3Cscript src='jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+  </script>
+
+<style>
+    #container  {
+      height:97%;
+      width:99%;
+      
+    }    
+ </style>
+
+<style>
+#refBtn{font-size:82%;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;text-align:center;outline:0;width:73px;color:#000;background:#08e18e;border:0 solid #00ae6b}hr{display:block;height:0;border:0;border-top:1px solid #00a3a3;padding:0}
+
+#refBtn:hover {
+	background-color:#3fcc7a;
+}
+#refBtn:active {
+	position:relative;
+	top:1px;
+}
+</style>
+
+
+</head>
+<body style=" background-color: #000000; color: white;">
+
+
+
+
+<script>  /////////////////====================EverythingGoingHERE========================//////////////////////////
+
+var hostAdr = location.host;
+//hostAdr = "192.168.4.215:8089";
+var Power_now=0;
+var Power_ref=0;
+var Voltage_now=0;
+var Voltage_ref=0;
+var Current_now=0;
+var Current_ref=0;
+var once=1;
+$(document).ready(function () {
+    // set up the updating of the chart each second
+    setInterval(function () {
+        var x = (new Date()).getTime(); // current time
+        $.getJSON('http://'+ hostAdr +'/Feed_JSON',  function( data ){ 
+        Power_now=data.Power; 
+        Voltage_now=data.AC_Voltage; 
+        Current_now=data.AC_Current; 
+        //update divs
+        $('#Power_Now').html("Power now: " + Power_now.toFixed(1) + " W" + "&nbsp" + "&nbsp");
+        $('#Power_Ref').html("Power diffrence: " + (Power_now-Power_ref).toFixed(1) + " W" + "&nbsp" + "&nbsp");
+
+        $('#Voltage_Now').html("Voltage now: " + Voltage_now.toFixed(1) + " V" + "&nbsp" + "&nbsp");
+        $('#Voltage_Ref').html("Voltage diffrence: " + (Voltage_now-Voltage_ref).toFixed(1) + " V" + "&nbsp" + "&nbsp");
+
+        $('#Current_Now').html("Current now: " + Current_now.toFixed(1) + " A" + "&nbsp" + "&nbsp");
+        $('#Current_Ref').html("Current diffrence: " + (Current_now-Current_ref).toFixed(1) + " A" + "&nbsp" + "&nbsp");
+        }).done(function() {
+            if(once)
+            {
+                once=0;
+                myRef();
+            }
+        });
+        
+
+    }, 1000);
+});
+
+function myRef() {
+  Power_ref=Power_now;
+  Voltage_ref=Voltage_now;
+  Current_ref=Current_now;
+}
+
+
+</script>
+
+<div id="Power_Now">Power</div>
+<div id="Power_Ref">---</div>
+<hr>
+<div id="Voltage_Now">Voltage</div>
+<div id="Voltage_Ref">---</div>
+<hr>
+<div id="Current_Now">Current</div>
+<div id="Current_Ref">---</div>
+<hr>
+<button id=refBtn onclick='myRef()'>Reference</button>
+
+
+</html>
