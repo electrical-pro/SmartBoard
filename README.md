@@ -32,3 +32,5 @@ Pin Header: https://s.click.aliexpress.com/e/_AUvLzT
 Female PCB Header: https://s.click.aliexpress.com/e/_AClQip
 
 5V relay module: https://s.click.aliexpress.com/e/_AAXY9i
+
+1602 I2C Display: https://s.click.aliexpress.com/e/_AF3L2o
