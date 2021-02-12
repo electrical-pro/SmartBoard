@@ -21,10 +21,6 @@ Resistors: https://s.click.aliexpress.com/e/_9AslPB
 
 Electrolytic Capacitor: https://s.click.aliexpress.com/e/_A2atvx
 
-PCB 4X6: https://s.click.aliexpress.com/e/_d65i2Sg
-
-or
-
 PCB 6X8: https://s.click.aliexpress.com/e/_d7XpQnS
 
 Pin Header: https://s.click.aliexpress.com/e/_AUvLzT
