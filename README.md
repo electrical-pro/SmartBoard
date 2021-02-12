@@ -12,3 +12,21 @@ The project uses SPIFFS to store files on ESP8266, upload them to the ESP8266 (r
 After flashing connect to "PowerControlESP | Offline" pass is "PowerControlPass" then go to 192.168.4.1 and connect to your network.
 
 Power server is at 192.168.x.x:8089
+
+PZEM-004T: https://s.click.aliexpress.com/e/_9hYStD
+
+ESP8266: https://s.click.aliexpress.com/e/_97j7kp
+
+Resistors: https://s.click.aliexpress.com/e/_9AslPB
+
+Electrolytic Capacitor: https://s.click.aliexpress.com/e/_A2atvx
+
+PCB 4X6: https://s.click.aliexpress.com/e/_d65i2Sg
+
+or
+
+PCB 6X8: https://s.click.aliexpress.com/e/_d7XpQnS
+
+Pin Header: https://s.click.aliexpress.com/e/_AUvLzT
+
+Female PCB Header: https://s.click.aliexpress.com/e/_AClQip
