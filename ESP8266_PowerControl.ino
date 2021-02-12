@@ -207,7 +207,7 @@ void setup(void) {
 
     //automatically connect using saved credentials if they exist
     //If connection fails it starts an access point with the specified name
-    if(wm.autoConnect("PowerControlESP | Offline", "231019787511")){
+    if(wm.autoConnect("PowerControlESP | Offline", "PowerControPass")){
         Serial1.println("connected...yeey :)");
         lcd_drive(0, "Wi-Fi Connected");
         WifiOnlineStateFlag = true; // wifi in online state
