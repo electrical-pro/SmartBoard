@@ -30,9 +30,16 @@ Female PCB Header: https://s.click.aliexpress.com/e/_AClQip
 1602 I2C Display: https://s.click.aliexpress.com/e/_AF3L2o
 
 
-
+# Compilation
 Use core 2.7.4 for this project
 <img src= "https://user-images.githubusercontent.com/31592485/144918424-99d9fd49-648d-44d2-9706-a2a4bb46a6fc.png">
+
+please download the necessary libraries:
+https://github.com/electrical-pro/SmartBoard/blob/main/libraries.zip
+copy them from the archive to:
+C:\Users<USERNAME>\Documents\Arduino\libraries
+
+P.S. I modified the LiquidCrystal_I2C library, I removed Wire.begin(5, 14);
 
 # Uploading files from data folder
 The project uses SPIFFS to store files on ESP8266, upload them to the ESP8266 (read about SPIFFS if you dont know what that is.)
@@ -59,3 +66,6 @@ bool PublicAccess = true;  // authorization
 If it is true it only allows you to go to http://192.168.x.x:8089
 
 if it is false nothing is allowed unless you go to http://192.168.x.x:8089/me first
+  
+If you still have a problem read this: https://github.com/electrical-pro/SmartBoard/issues/1
+Or open a new issue 
