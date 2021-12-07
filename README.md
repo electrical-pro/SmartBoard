@@ -34,9 +34,9 @@ to make it work right set it to false in the sketch
 // set it to false, and then get auth cookie by going to 192.168.x.x:8089/me
 bool PublicAccess = true;  // authorization 
 ```
-If it is true it only allows you to go to http://192.168.4.1:8089
+If it is true it only allows you to go to http://192.168.x.x:8089
 
-if it is false nothing is allowed unless you go to http://192.168.4.1:8089/me first
+if it is false nothing is allowed unless you go to http://192.168.x.x:8089/me first
 
 # This is what you need for the project: 
 
