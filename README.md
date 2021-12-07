@@ -12,7 +12,7 @@ This is the final curcuit:
 Use core 2.7.4 for this project
 <img src= "https://user-images.githubusercontent.com/31592485/144918424-99d9fd49-648d-44d2-9706-a2a4bb46a6fc.png">
 
-# Flasing files from data folder
+# Uploading files from data folder
 The project uses SPIFFS to store files on ESP8266, upload them to the ESP8266 (read about SPIFFS if you dont know what that is.)
 <img src= "https://user-images.githubusercontent.com/31592485/144975688-d3c384d7-df4c-466e-9fc9-a04e458448b0.jpg">
 If you don't see this option install the plugin from here:
