@@ -9,6 +9,8 @@ This is the final curcuit:
 
 The project uses SPIFFS to store files on ESP8266, upload them to the ESP8266 (read about SPIFFS if you dont know what that is.)
 
+Read this if you have any problems: https://github.com/electrical-pro/SmartBoard/issues/1
+
 After flashing connect to "PowerControlESP | Offline" pass is "PowerControlPass" then go to 192.168.4.1 and connect to your network.
 
 Power server is at 192.168.x.x:8089
