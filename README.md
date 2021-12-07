@@ -54,8 +54,8 @@ After flashing connect to "PowerControlESP | Offline" pass is "PowerControlPass"
 Power server is at 192.168.x.x:8089 (port is 8089)
 
 # Very unusual authorization that I implementedd
-If it says "The file exists, but you are not authorized!" - is a simple safety feature that I implemented
-so in order to access files, you need to go to a secret URL first http://192.168.x.x:8089/me (you can program another one)
+If it says "The file exists, but you are not authorized!" - is a simple safety feature that I implemented,
+so in order to access files you need to go to a secret URL first http://192.168.x.x:8089/me (you can program another one)
 When you go to http://192.168.x.x:8089/me it puts a cookie in your browser and you become an authorized user
 
 to make it work right set it to false in the sketch
@@ -66,6 +66,7 @@ bool PublicAccess = true;  // authorization
 If it is true it only allows you to go to http://192.168.x.x:8089
 
 if it is false nothing is allowed unless you go to http://192.168.x.x:8089/me first
-  
+
+# Good Luck
 If you still have a problem read this: https://github.com/electrical-pro/SmartBoard/issues/1
 Or open a new issue 
