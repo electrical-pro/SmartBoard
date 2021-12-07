@@ -53,7 +53,7 @@ After flashing connect to "PowerControlESP | Offline" pass is "PowerControlPass"
 
 Power server is at 192.168.x.x:8089 (port is 8089)
 
-# Very unusual authorization that I implementedd
+# Very unusual authorization that I implemented
 If it says "The file exists, but you are not authorized!" - is a simple safety feature that I implemented,
 so in order to access files you need to go to a secret URL first http://192.168.x.x:8089/me (you can program another one)
 When you go to http://192.168.x.x:8089/me it puts a cookie in your browser and you become an authorized user
