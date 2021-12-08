@@ -210,6 +210,8 @@ void setup(void) {
     if(wm.autoConnect("PowerControlESP | Offline", "PowerControlPass")){
         Serial1.println("connected...yeey :)");
         lcd_drive(0, "Wi-Fi Connected");
+        lcd_drive(1, WiFi.localIP().toString());
+        delay(500);
         WifiOnlineStateFlag = true; // wifi in online state
 
           // Indicate the start of connectrion to AP
