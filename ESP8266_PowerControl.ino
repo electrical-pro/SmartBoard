@@ -1369,7 +1369,7 @@ StaticJsonDocument<1024> root;
   
       time_t TimeNow = time(nullptr);
 
-  root["UnixTimeStamp"] = TimeNow;
+  root["UnixTimeStamp"] = String(TimeNow);
   root["TimeNow"] = ctime(&TimeNow);
   root["Millis"] =  millis();      
 
