@@ -33,6 +33,7 @@ Female PCB Header: https://s.click.aliexpress.com/e/_AClQip
 # Compilation
 Use core 2.7.4 for this project (Tested with this version)
 <img src= "https://user-images.githubusercontent.com/31592485/144918424-99d9fd49-648d-44d2-9706-a2a4bb46a6fc.png">
+upd: 08/12/2021 made some changes, tested with 3.0.2 (works)
 
 please download the necessary libraries:
 https://github.com/electrical-pro/SmartBoard/blob/main/libraries.zip
