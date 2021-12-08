@@ -1822,19 +1822,21 @@ String GetAddressToString(DeviceAddress deviceAddress){
 //===============================Telegram_Message======================//
 // I send warnings to telegram via IFTTT, change to what you like here.
 void telegramPrivateMsg(String msg) {
- if (internetDown == false && WiFi.status() == WL_CONNECTED){
-      HTTPClient http;
-      http.setTimeout(2000);
-      http.begin(client, F("http://maker.ifttt.com/trigger/telegramPrivateMsg/with/key/xxxxxxYourApiKeyxxxxxxxxx"));
-      http.addHeader(F("Content-Type"), F("application/x-www-form-urlencoded"));
-      http.POST("value1=" + msg);
-      Serial1.println("===============================");
-      Serial1.println(F("Private Telegram Message"));
-      Serial1.println(F("Response from server:"));
-      http.writeToStream(&Serial1);
-      Serial1.println();
-      http.end();
- }
+// Uncomment this if you gonna use it
+// This will send warnings to your phone via IFTTT
+// if (internetDown == false && WiFi.status() == WL_CONNECTED){
+//      HTTPClient http;
+//      http.setTimeout(2000);
+//      http.begin(client, F("http://maker.ifttt.com/trigger/telegramPrivateMsg/with/key/xxxxxxYourApiKeyxxxxxxxxx"));
+//      http.addHeader(F("Content-Type"), F("application/x-www-form-urlencoded"));
+//      http.POST("value1=" + msg);
+//      Serial1.println("===============================");
+//      Serial1.println(F("Private Telegram Message"));
+//      Serial1.println(F("Response from server:"));
+//      http.writeToStream(&Serial1);
+//      Serial1.println();
+//      http.end();
+// }
 }
 //===============================Telegram_Message======================//
 
