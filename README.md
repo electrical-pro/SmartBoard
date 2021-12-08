@@ -31,7 +31,7 @@ Female PCB Header: https://s.click.aliexpress.com/e/_AClQip
 
 
 # Compilation
-Use core 2.7.4 for this project
+Use core 2.7.4 for this project (Tested with this version)
 <img src= "https://user-images.githubusercontent.com/31592485/144918424-99d9fd49-648d-44d2-9706-a2a4bb46a6fc.png">
 
 please download the necessary libraries:
