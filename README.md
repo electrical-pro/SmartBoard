@@ -67,6 +67,15 @@ If it is true it only allows you to go to http://192.168.x.x:8089
 
 if it is false nothing is allowed unless you go to http://192.168.x.x:8089/me first
 
+# Serial
+Note that I use Serial for PZEM004Tv30 module
+```cpp
+PZEM004Tv30 pzem(&Serial);
+```
+Other information goes to Serial1 not Serial (so you will not see things in serial monitor)
+ ```cpp 
+Serial1.begin(115200);
+ ``` 
 # Good Luck
 If you still have a problem read this: https://github.com/electrical-pro/SmartBoard/issues/1
 Or open a new issue 
