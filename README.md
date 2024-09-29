@@ -11,23 +11,23 @@ This is the final curcuit:
 
 # This is components you need for the project: 
 
-PZEM-004T: https://s.click.aliexpress.com/e/_9hYStD
+PZEM-004T: [https://s.click.aliexpress.com/e/_9hYStD](https://s.click.aliexpress.com/e/_9hYStD)
 
-ESP8266: https://s.click.aliexpress.com/e/_97j7kp
+ESP8266: [https://s.click.aliexpress.com/e/_De5gu7f](https://s.click.aliexpress.com/e/_De5gu7f)
 
-Resistors: https://s.click.aliexpress.com/e/_9AslPB
+Resistors: [https://s.click.aliexpress.com/e/_9AslPB](https://s.click.aliexpress.com/e/_9AslPB)
 
-Electrolytic Capacitor: https://s.click.aliexpress.com/e/_A2atvx
+Electrolytic Capacitor: [https://s.click.aliexpress.com/e/_A2atvx](https://s.click.aliexpress.com/e/_A2atvx)
 
-PCB 6X8: https://s.click.aliexpress.com/e/_d7XpQnS
+PCB 6X8: [https://s.click.aliexpress.com/e/_d7XpQnS](https://s.click.aliexpress.com/e/_DlxggA5)
 
-Pin Header: https://s.click.aliexpress.com/e/_AUvLzT
+Pin Header: [https://s.click.aliexpress.com/e/_AUvLzT](https://s.click.aliexpress.com/e/_DdOig6l)
 
-Female PCB Header: https://s.click.aliexpress.com/e/_AClQip
+Female PCB Header: [https://s.click.aliexpress.com/e/_AClQip](https://s.click.aliexpress.com/e/_DDBKykp)
 
-5V relay module: https://s.click.aliexpress.com/e/_AAXY9i
+5V relay module: [https://s.click.aliexpress.com/e/_AAXY9i](https://s.click.aliexpress.com/e/_AAXY9i)
 
-1602 I2C Display: https://s.click.aliexpress.com/e/_AF3L2o
+1602 I2C Display: [https://s.click.aliexpress.com/e/_AF3L2o](https://s.click.aliexpress.com/e/_Ddlumpb)
 
 
 # Compilation
