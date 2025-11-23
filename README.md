@@ -35,8 +35,9 @@ P.S. I modified the LiquidCrystal_I2C library, I removed Wire.begin(); we call i
 
 # Uploading files from data folder
 There is a file manager at 192.168.x.x:8089/littlefs content from data folder should be uploaded to littlefs (format & upload)
+<img width="958" height="726" alt="image" src="https://github.com/user-attachments/assets/2f9ab438-c72c-401d-b6c2-697d46007ecd" />
 
-Main page is at 192.168.x.x:8089 (port is 8089)
+After uploading main page is at 192.168.x.x:8089 (port is 8089)
 
 # Serial
 Note that I use Serial for PZEM004Tv30 module
