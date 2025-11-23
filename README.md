@@ -38,6 +38,7 @@ There is a file manager at 192.168.x.x:8089/littlefs
 
 Content from data folder should be uploaded to littlefs (format & upload), should be like this:
 <img width="958" height="726" alt="image" src="https://github.com/user-attachments/assets/2f9ab438-c72c-401d-b6c2-697d46007ecd" />
+Ignore that it says ESP32, we use ESP8266 :)
 
 After uploading, the main page is at 192.168.x.x:8089 (port is 8089)
 
